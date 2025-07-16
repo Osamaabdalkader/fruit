@@ -1,4 +1,4 @@
-// جلب عناصر DOM الخاصة بالصفحة الرئيسية
+ // جلب عناصر DOM الخاصة بالصفحة الرئيسية
 const postsContainer = document.getElementById('posts-container');
 
 // جلب الأيقونات التي تؤدي إلى صفحات أخرى
