@@ -1,0 +1,98 @@
+/* تنسيقات خاصة بالصفحة الرئيسية */
+#home-page .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.post-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-image {
+    height: 180px;
+    background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 15px;
+}
+
+.post-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark-color);
+}
+
+.post-description {
+    color: var(--gray-color);
+    margin-bottom: 10px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--light-gray);
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+.post-price {
+    font-weight: 700;
+    color: var(--success-color);
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+}
+
+.post-author i {
+    margin-left: 5px;
+}
+
+.no-posts {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--gray-color);
+    margin-top: 50px;
+    grid-column: 1 / -1; /* لجعل النص يتوسط الشبكة */
+}
+
+/* التصميم للهواتف */
+@media (max-width: 768px) {
+    #home-page .posts-grid {
+        grid-template-columns: 1fr; /* عمود واحد في الشاشات الصغيرة */
+    }
+}
