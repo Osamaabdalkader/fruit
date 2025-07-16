@@ -1,0 +1,236 @@
+/* تنسيقات خاصة بصفحة الدفع المضمون */
+.payment-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    text-align: center;
+}
+
+.payment-steps {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.payment-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: var(--light-gray);
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-gray);
+    color: var(--gray-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 2px solid var(--light-gray);
+    transition: all 0.3s ease;
+}
+
+.step-text {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    transition: color 0.3s ease;
+}
+
+.step.active .step-circle {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.step.active .step-text {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* أقسام الدفع */
+.payment-section {
+    text-align: right; /* محاذاة النص لليمين للغة العربية */
+}
+
+.payment-section h2 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.post-info-summary {
+    background-color: var(--light-color);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+}
+
+.post-info-summary p {
+    margin-bottom: 8px;
+    color: var(--gray-color);
+    font-size: 1rem;
+}
+
+.post-info-summary p strong {
+    color: var(--dark-color);
+}
+
+.post-info-summary .price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.payment-qr-code {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px dashed var(--light-gray);
+    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+}
+
+.payment-qr-code h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+#karimi-qr-code {
+    max-width: 200px;
+    height: auto;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+}
+
+.qr-note {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.qr-note strong {
+    color: var(--dark-color);
+    font-size: 1rem;
+}
+
+/* أزرار التنقل بين الخطوات */
+#next-to-receipt-btn,
+#send-receipt-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#back-to-details-btn {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* تنسيقات رفع الصورة (مكررة من add-post.css لكن بتعديلات بسيطة) */
+.image-upload-group {
+    margin-bottom: 25px;
+}
+
+.image-upload-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.image-upload-controls .btn-outline {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+}
+
+.image-name {
+    display: block;
+    margin-top: 10px;
+    color: var(--gray-color);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.image-preview {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    margin-top: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* التصميم للهواتف */
+@media (max-width: 768px) {
+    .payment-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .payment-steps {
+        flex-direction: column;
+        align-items: flex-end; /* لترتيب الخطوات عمودياً من اليمين لليسار */
+        gap: 15px;
+    }
+
+    .payment-steps::before {
+        display: none; /* إخفاء الخط الأفقي في وضع الهاتف */
+    }
+
+    .step {
+        flex-direction: row-reverse; /* لترتيب الدائرة والنص بجانب بعضهما */
+        width: 100%;
+        justify-content: flex-end; /* محاذاة لليمين */
+    }
+
+    .step-circle {
+        margin-right: 10px; /* مسافة بين الدائرة والنص */
+    }
+
+    .image-upload-controls {
+        flex-direction: column;
+    }
+}
