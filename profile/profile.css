@@ -1,0 +1,184 @@
+/* تنسيقات خاصة بصفحة حساب المستخدم */
+.profile-container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    text-align: center;
+}
+
+.profile-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.profile-avatar {
+    font-size: 5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+#profile-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#profile-email {
+    color: var(--gray-color);
+    font-size: 1rem;
+}
+
+.profile-details {
+    text-align: right; /* محاذاة النص لليمين للغة العربية */
+    margin-bottom: 30px;
+}
+
+.profile-details h3,
+.user-posts-section h3 {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    text-align: center; /* العنوان في المنتصف */
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--light-gray);
+}
+
+.detail-item:last-of-type {
+    border-bottom: none;
+}
+
+.detail-item span {
+    font-weight: 500;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+}
+
+.detail-item span i {
+    margin-left: 10px; /* مسافة بين الأيقونة والنص */
+    color: var(--primary-color);
+}
+
+.detail-item p {
+    color: var(--gray-color);
+    font-size: 1rem;
+}
+
+#edit-profile-btn,
+#logout-btn {
+    margin-top: 25px;
+    width: auto; /* لضبط عرض الأزرار */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    margin-left: 10px; /* مسافة بين الأزرار */
+}
+
+.logout-btn {
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.logout-btn:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+#edit-profile-form {
+    background-color: var(--light-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-top: 30px;
+    text-align: right; /* محاذاة النموذج لليمين */
+}
+
+#edit-profile-form .btn,
+#edit-profile-form .btn-outline {
+    width: auto;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.user-posts-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--light-gray);
+}
+
+/* تنسيقات شبكة المنشورات في صفحة الملف الشخصي */
+.user-posts-section .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* أصغر قليلاً */
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.user-posts-section .no-posts {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+/* التصميم للهواتف */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .profile-avatar {
+        font-size: 4rem;
+    }
+
+    #profile-name {
+        font-size: 1.5rem;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-end; /* المحاذاة لليمين في وضع العمود */
+        border-bottom: none; /* إزالة الخطوط بين العناصر في الوضع العمودي */
+        padding-bottom: 0;
+        margin-bottom: 10px;
+    }
+    
+    .detail-item span {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .detail-item p {
+        width: 100%;
+        text-align: right;
+    }
+
+    #edit-profile-btn,
+    #logout-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px; /* مسافة بين الأزرار */
+    }
+
+    .user-posts-section .posts-grid {
+        grid-template-columns: 1fr; /* عمود واحد */
+    }
+    
+    #edit-profile-form .btn,
+    #edit-profile-form .btn-outline {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
