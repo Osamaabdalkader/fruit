@@ -1,0 +1,535 @@
+/* هذا هو ملف التنسيقات العامة (global.css) */
+
+/* تعريف المتغيرات (Variables) */
+:root {
+    --primary-color: #388e3c; /* أخضر داكن (لون أساسي للتطبيق) */
+    --primary-color-light: #66bb6a;
+    --primary-color-dark: #2e7d32;
+    --primary-color-rgb: 56, 142, 60; /* RGB لقيم اللون الأساسي */
+
+    --secondary-color: #0288d1; /* أزرق داكن (لون ثانوي للتطبيق) */
+    --secondary-color-light: #4fc3f7;
+    --secondary-color-dark: #01579b;
+    --secondary-color-rgb: 2, 136, 209; /* RGB لقيم اللون الثانوي */
+
+    --success-color: #4caf50; /* أخضر للنجاح */
+    --warning-color: #ff9800; /* برتقالي للتحذير */
+    --danger-color: #d32f2f; /* أحمر للخطر/الخطأ */
+    --danger-color-dark: #c62828;
+
+    --dark-color: #333; /* لون نص داكن */
+    --gray-color: #777; /* لون نص رمادي */
+    --light-gray: #eee; /* لون خلفية رمادي فاتح جداً */
+    --light-gray-darker: #ccc; /* رمادي أغمق قليلا */
+    --light-color: #f9f9f9; /* لون خلفية فاتح جداً */
+    --white-color: #fff; /* أبيض */
+
+    --border-radius: 8px; /* نصف قطر حواف العناصر */
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* ظل افتراضي للعناصر */
+    --box-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08); /* ظل أصغر */
+
+    --header-height: 60px;
+    --footer-height: 60px;
+}
+
+/* إعادة تعيين CSS الأساسي (Reset CSS) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-color);
+    line-height: 1.6;
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+    text-align: right; /* محاذاة النص لليمين افتراضياً */
+    min-height: 100vh; /* ارتفاع كامل لتمكين شريط التذييل الثابت */
+    display: flex;
+    flex-direction: column;
+}
+
+/* تنسيقات الروابط */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color-dark);
+}
+
+/* التخطيط العام للصفحات */
+.page {
+    flex: 1; /* لجعل المحتوى يمتد ويسمح بتثبيت الفوتر */
+    padding-bottom: calc(var(--footer-height) + 20px); /* مسافة للفوتر */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* شريط الرأس (Header) */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.header-content .home-icon,
+.header-content .back-icon {
+    position: absolute;
+    right: 20px; /* في RTL، الأيقونة اليسرى تكون على اليمين */
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.header-content .home-icon:hover,
+.header-content .back-icon:hover {
+    color: var(--light-gray);
+}
+
+
+/* الأزرار العامة (Buttons) */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: fit-content;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: none;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: fit-content;
+    text-align: center;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-remove {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    left: 5px; /* في RTL، زر الإغلاق يكون على اليسار */
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.btn-remove:hover {
+    opacity: 1;
+}
+
+/* عناصر النموذج (Form Elements) */
+.form-group {
+    margin-bottom: 20px;
+    text-align: right; /* محاذاة لليمين */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-gray-darker);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: 'Tajawal', sans-serif; /* لضمان نفس الخط في جميع المدخلات */
+    color: var(--dark-color);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.form-group textarea {
+    resize: vertical; /* السماح بتغيير حجم مربع النص عمودياً فقط */
+}
+
+/* شريط التذييل (Footer) */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    height: var(--footer-height);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.footer-icons .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex: 1; /* لتوزيع الأيقونات بالتساوي */
+}
+
+.footer-icons .icon i {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: var(--white-color); /* لون أيقونات الفوتر الافتراضي */
+    transition: color 0.3s ease;
+}
+
+.footer-icons .icon span {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    transition: color 0.3s ease;
+}
+
+.footer-icons .icon:hover {
+    background-color: rgba(var(--white-color-rgb), 0.1);
+}
+
+.footer-icons .icon.highlight {
+    /* تنسيق خاص لأيقونة الإضافة في المنتصف */
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-20px); /* رفع الأيقونة قليلاً */
+    box-shadow: var(--box-shadow);
+    display: flex; /* لضمان توسيط الأيقونة بداخلها */
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--light-gray); /* حدود حول الدائرة */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-icons .icon.highlight i {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    color: white;
+}
+
+.footer-icons .icon.highlight:hover {
+    background-color: var(--primary-color-dark);
+}
+
+/* لجعل الأيقونة النشطة مميزة */
+.footer-icons .icon.active i,
+.footer-icons .icon.active span {
+    color: var(--primary-color); /* لون الأيقونة النشطة */
+}
+/* لا يمكن تطبيق هذا مباشرة على الأيقونات داخل .highlight لأنها لها ألوانها الخاصة */
+.footer-icons .icon:not(.highlight).active i {
+    color: var(--primary-color-light); /* لجعل الأيقونات غير المظللة أكثر سطوعًا عند النشاط */
+}
+.footer-icons .icon:not(.highlight).active span {
+    color: var(--primary-color-light);
+}
+
+/* الرسائل العامة (Global Messages) */
+#global-message {
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    margin: 20px auto;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0; /* مخفي افتراضياً */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-20px);
+    max-width: 500px;
+    position: sticky; /* لجعلها تتبع التمرير إذا كان المحتوى طويلاً */
+    top: calc(var(--header-height) + 10px); /* أسفل الهيدر بقليل */
+    z-index: 999;
+}
+
+#global-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#global-message.hidden {
+    display: none; /* إخفاء تام عند عدم الحاجة */
+}
+
+#global-message.success {
+    background-color: #e8f5e9; /* Light green */
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+#global-message.error {
+    background-color: #ffebee; /* Light red */
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+}
+
+#global-message.warning {
+    background-color: #fff3e0; /* Light orange */
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+}
+
+#global-message.info {
+    background-color: #e1f5fe; /* Light blue */
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+/* شاشة التحميل (Loading Overlay) */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 2000;
+}
+
+.loading-overlay .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid var(--primary-color-light);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loading-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.loading-overlay .progress-bar {
+    width: 200px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.loading-overlay .progress {
+    width: 0%;
+    height: 100%;
+    background-color: var(--primary-color-light);
+    border-radius: 5px;
+    transition: width 0.1s ease-out; /* انتقال سلس للتقدم */
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* تنسيقات عامة للجداول (قد يتم تجاوزها في صفحات محددة) */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid var(--light-gray-darker);
+    padding: 10px;
+    text-align: right;
+    vertical-align: top;
+}
+
+table th {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 500;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+/* تنسيقات عامة للهاتف (Mobile styles) */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    header {
+        padding: 10px 15px;
+        height: var(--header-height);
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .header-content .home-icon,
+    .header-content .back-icon {
+        right: 15px;
+        font-size: 1.3rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+    }
+
+    .btn-outline {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    footer {
+        padding: 8px 0;
+        height: var(--footer-height);
+    }
+
+    .footer-icons .icon i {
+        font-size: 1.2rem;
+        margin-bottom: 3px;
+    }
+
+    .footer-icons .icon span {
+        font-size: 0.7rem;
+    }
+
+    .footer-icons .icon.highlight {
+        width: 45px;
+        height: 45px;
+        transform: translateY(-15px);
+        border: 3px solid var(--light-gray);
+    }
+
+    .footer-icons .icon.highlight i {
+        font-size: 1.6rem;
+    }
+
+    #global-message {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        top: calc(var(--header-height) + 5px);
+    }
+}
+
+/* تنسيقات خاصة للمربعات / البطاقات */
+.card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-sm);
+    padding: 20px;
+    margin-bottom: 20px;
+}
