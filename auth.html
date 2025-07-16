@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول / إنشاء حساب - تسريع</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css"> <link rel="stylesheet" href="auth.css"> </head>
+<body>
+    <header>
+        <div class="header-content">
+            <i class="fas fa-home home-icon" id="home-icon"></i>
+            <h1>تسجيل الدخول / إنشاء حساب</h1>
+        </div>
+    </header>
+
+    <main id="auth-page" class="page">
+        <div class="auth-container">
+            <button id="close-auth" class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="global-message" class="auth-message hidden"></div> <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">تسجيل الدخول</button>
+                <button class="tab-btn" data-tab="signup">إنشاء حساب</button>
+            </div>
+            
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" placeholder="ادخل بريدك الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">كلمة المرور</label>
+                    <input type="password" id="login-password" placeholder="ادخل كلمة المرور" required>
+                </div>
+                <button type="submit" id="login-btn" class="btn">تسجيل الدخول</button>
+            </form>
+            
+            <form id="signup-form" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="signup-name">الاسم الكامل</label>
+                    <input type="text" id="signup-name" placeholder="ادخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">رقم الهاتف</label>
+                    <input type="tel" id="signup-phone" placeholder="مثال: 771234567" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">البريد الإلكتروني</label>
+                    <input type="email" id="signup-email" placeholder="ادخل بريدك الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">كلمة المرور</label>
+                    <input type="password" id="signup-password" placeholder="أنشئ كلمة مرور (6 أحرف على الأقل)" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-address">العنوان</label>
+                    <input type="text" id="signup-address" placeholder="ادخل عنوانك (مثال: صنعاء - شارع تعز)" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-account">رقم حساب الكريمي</label>
+                    <input type="text" id="signup-account" placeholder="مثال: 9874347954" required>
+                </div>
+                <button type="submit" id="signup-btn" class="btn">إنشاء حساب</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-icons">
+            <div class="icon" id="profile-icon">
+                <i class="fas fa-user"></i>
+                <span>حسابي</span>
+            </div>
+            <div class="icon" id="notifications-icon">
+                <i class="fas fa-bell"></i>
+                <span>الإشعارات</span>
+            </div>
+            <div class="icon highlight" id="add-post-icon">
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="icon" id="support-icon">
+                <i class="fas fa-headset"></i>
+                <span>الدعم</span>
+            </div>
+            <div class="icon" id="more-icon">
+                <i class="fas fa-ellipsis-h"></i>
+                <span>المزيد</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage-compat.js"></script>
+    <script src="../js/firebase-init.js"></script>
+    <script src="auth.js"></script> </body>
+</html>
